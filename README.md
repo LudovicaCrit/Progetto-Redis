@@ -27,18 +27,24 @@ docker-compose run --rm consumer
 docker-compose run --rm producer
 ```
 
-### Locale
+### Locale (senza Docker)
 ```bash
-# Avvia Redis in locale
+# ⚠️ ORDINE OBBLIGATORIO:
+
+# 1. PRIMO: Avvia Redis locale
 redis-server
 
-# Crea dati demo
+# 2. SECONDO: Crea dati demo (NECESSARIO!)
 python demo.py
 
-# Avvia applicazioni
-python consumer.py  # terminale 1
-python producer.py  # terminale 2
+# 3. TERZO: Avvia Consumer (nuovo terminale)
+python consumer.py
+
+# 4. QUARTO: Avvia Producer (altro terminale)
+python producer.py
 ```
+
+**⚠️ IMPORTANTE:** Il file `demo.py` DEVE essere eseguito prima di consumer/producer per creare utenti demo e dati di test. Senza questo step il sistema non funziona!
 
 ## Credenziali Demo
 - `mario@test.it` / `123` → sport, cronaca
